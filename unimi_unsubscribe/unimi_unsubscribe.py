@@ -9,7 +9,7 @@ from time import sleep
 def unsubscribe(user: str, password: str, server: str="smtp.unimi.it", sympa_mail: str="sympa@liste.unimi.it", port: int=465, timeout: int= 5):
     server_ssl = SMTP_SSL(server, port)
     server_ssl.login(user, password)
-    spam_path = "dir/spam_list.json".format(
+    spam_path = "{dir}/spam_list.json".format(
         dir=os.path.dirname(os.path.realpath(__file__))
     )
     with open(spam_path, "r") as f:
