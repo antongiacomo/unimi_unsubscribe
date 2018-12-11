@@ -35,4 +35,6 @@ def unsubscribe(user: str, password: str, server: str="smtp.unimi.it", sympa_mai
     msg["From"] = user
     server_ssl.sendmail(user, sympa_mail, msg.as_string())
     server_ssl.close()
-    print("All done.")
+    print("All done: you will now receive a mail from the SYMPA service with the results of the unsubscribe commands.")
+    print("Some lists cannot be unsubscribed with this channel, as they are required by the university.")
+    print("You may receive an error from those lists.")
