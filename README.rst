@@ -1,6 +1,7 @@
 Unimi Unsubscribe
 =============================
 |pip|
+
 Simple package to stop receiving annoying emails from Unimi.
 
 Installation
