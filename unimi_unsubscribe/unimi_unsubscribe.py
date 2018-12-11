@@ -20,19 +20,23 @@ def unsubscribe(user: str, password: str, server: str="smtp.unimi.it", sympa_mai
     spam_path = "{dir}/spam_list.json".format(
         dir=os.path.dirname(os.path.realpath(__file__))
     )
-    with open(spam_path, "r") as f:
+    with open(spam_path, "r", encoding='utf-8') as f:
         spam_lists = json.load(f)
     print("Proceeding to unsubscribe from the following lists:")
     pprint(spam_lists)
     print(
         "To avoid being flagged as spam, a timeout of {timeout} seconds will be waited beetween each mail.".format(timeout=timeout))
     print("If you'd like to customize said timeout, you can pass an optional parameter `timeout` when calling `unsubscribe`.")
-    sure = input("Proceed? [y/n]")
+    sure = input("Proceed? [y/n] ")
     if sure != "y":
         print("Entered {sure}, aborting.".format(sure=sure))
         return
     for spam_list in tqdm(spam_lists):
-        server_ssl.sendmail(user, sympa_mail, spam_list)
+        server_ssl.sendmail(user, sympa_mail, "From: {you}\nTo: {spam}\nSubject: {spam_list}\n\n".format(
+            you=user,
+            spam=sympa_mail,
+            spam_list=spam_list
+        ))
         sleep(timeout)
     server_ssl.close()
     print("All done.")
