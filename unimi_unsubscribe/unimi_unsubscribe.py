@@ -23,12 +23,13 @@ def unsubscribe(user: str, password: str, server: str="smtp.unimi.it", sympa_mai
         spam_lists = json.load(f)
     print("Proceeding to unsubscribe from the following lists:")
     pprint(spam_lists)
+    print("Remember that you can always resubscribe to these.")
     sure = input("Proceed? [y/n] ")
     if sure != "y":
         print("Entered {sure}, aborting.".format(sure=sure))
         return
     msg = MIMEText("\n".join(
-        ["unsubscribe {spam}".format(spam=spam) for spam in spam_lists]), _charset="UTF-8")
+        ["unsubscribe {spam}".format(spam=spam.split("@")[0]) for spam in spam_lists]), _charset="UTF-8")
     msg["Subject"] = ""
     msg["To"] = sympa_mail
     msg["From"] = user
