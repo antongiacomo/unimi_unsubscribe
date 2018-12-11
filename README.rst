@@ -42,8 +42,11 @@ An example of output of trhis script is the following:
     ...
     'studenti.ultimoanno@liste.unimi.it',
     'studentiepostlaurea@liste.unimi.it']
+
     Remember that you can always resubscribe to these.
+
     Proceed? [y/n] y
+
     All done: you will now receive a mail from the SYMPA service with the results of the unsubscribe commands.
     Some lists cannot be unsubscribed with this channel, as they are required by the university.
     You may receive an error from those lists.
