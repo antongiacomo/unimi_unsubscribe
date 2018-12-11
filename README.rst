@@ -18,4 +18,4 @@ from unimi_unsubscribe import unsubscribe
 unsubscribe("name.surname@studenti.unimi.it", "my_password")
 ```
 
-.. _`given example`
+.. _given example: https://github.com/LucaCappelletti94/unimi_unsubscribe/blob/master/example.py
