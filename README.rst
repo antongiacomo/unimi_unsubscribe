@@ -1,5 +1,6 @@
 Unimi Unsubscribe
 =============================
+|pip|
 Simple package to stop receiving annoying emails from Unimi.
 
 Installation
@@ -22,3 +23,7 @@ Write a simple script like the `given example`_:
     unsubscribe("name.surname@studenti.unimi.it", "my_password")
 
 .. _given example: https://github.com/LucaCappelletti94/unimi_unsubscribe/blob/master/example.py
+
+
+.. |pip| image:: https://badge.fury.io/py/unimi_unsubscribe.svg
+    :target: https://badge.fury.io/py/unimi_unsubscribe
